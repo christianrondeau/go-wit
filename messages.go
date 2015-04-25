@@ -20,23 +20,36 @@ type Message struct {
 type Outcome struct {
 	Text       string                     `json:"_text"`
 	Intent     string                     `json:"intent"`
+	IntentId   string                     `json:"intent_id"`
 	Entities   map[string][]MessageEntity `json:"entities"`
 	Confidence float32                    `json:"confidence"`
 }
 
 // MessageEntity represents the entity portion of a Wit message
 type MessageEntity struct {
-	Metadata string      `json:"metadata,omitempty"`
-	Value    interface{} `json:"value,omitempty"`
-	Grain    string      `json:"grain,omitempty"`
-	Type     string      `json:"type,omitempty"`
-	Unit     string      `json:"unit,omitempty"`
+	Metadata *string              `json:"metadata,omitempty"`
+	Value    *interface{}         `json:"value,omitempty"`
+	Grain    *string              `json:"grain,omitempty"`
+	Type     *string              `json:"type,omitempty"`
+	Unit     *string              `json:"unit,omitempty"`
+	Body     *string              `json:"body,omitempty"`
+	Entity   *string              `json:"entity,omitempty"`
+	Start    *int64               `json:"start,omitempty"`
+	End      *int64               `json:"end,omitempty"`
+	Values   *[]interface{}       `json:"values,omitempty"`
+	From     *DatetimeIntervalEnd `json:"from,omitempty"`
+	To       *DatetimeIntervalEnd `json:"to,omitempty"`
 }
 
 // DatetimeValue represents the datetime value portion of a Wit message
 type DatetimeValue struct {
-	From string `json:"from"`
-	To   string `json:"to"`
+	From DatetimeIntervalEnd `json:"from"`
+	To   DatetimeIntervalEnd `json:"to"`
+}
+
+type DatetimeIntervalEnd struct {
+	Value string `json:"value"`
+	Grain string `json:"grain"`
 }
 
 // MessageRequest represents a request to process a message
