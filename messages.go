@@ -28,7 +28,7 @@ type Outcome struct {
 // MessageEntity represents the entity portion of a Wit message
 type MessageEntity struct {
 	Metadata *string              `json:"metadata,omitempty"`
-	Value    *interface{}         `json:"value,omitempty"`
+	Value    interface{}          `json:"value,omitempty"`
 	Grain    *string              `json:"grain,omitempty"`
 	Type     *string              `json:"type,omitempty"`
 	Unit     *string              `json:"unit,omitempty"`
