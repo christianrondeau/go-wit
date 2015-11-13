@@ -151,6 +151,9 @@ func TestCreateEntity(t *testing.T) {
 	}
 	entity.ID = entityName
 	entity, err = client.CreateEntity(entity)
+	if entity == nil {
+		t.Error("Entity is nil!")
+	}
 	if entity.Doc != "A city that I like" {
 		t.Error("Entity was not created properly, doc not set")
 	}

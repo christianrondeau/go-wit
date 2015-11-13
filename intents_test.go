@@ -4,6 +4,8 @@
 package wit
 
 import (
+	"log"
+	"os"
 	//"os"
 	"testing"
 )
@@ -45,6 +47,38 @@ func TestWitIntentsParsing(t *testing.T) {
 				t.Error("Intents JSON did not parse properly.")
 			}
 		}
+	}
+}
+
+func TestWitIntentShow(t *testing.T) {
+	client := NewClient(os.Getenv("WIT_ACCESS_TOKEN"))
+	intents, err := client.Intents()
+	if err != nil || intents == nil {
+		t.Error("Could not fetch intents:", err.Error())
+		return
+	}
+	testedAnIntent := false
+	for _, intent := range *intents {
+		intentDetail, err := client.IntentShow(intent.ID)
+		if err != nil {
+			t.Error("Could not get detail for intent:", intent.ID)
+			return
+		}
+		if intent.ID != intentDetail.ID {
+			t.Error("Intent IDs don't match")
+		}
+		if len(intentDetail.Expressions) < 1 {
+			t.Error("Did not get example expressions for intent:")
+		}
+		if len(intentDetail.Entities) < 1 {
+			t.Error("No entities for intent:", intentDetail.ID)
+		}
+		log.Printf("Got intent detail: %+v", *intentDetail)
+		testedAnIntent = true
+	}
+
+	if !testedAnIntent {
+		t.Error("No intents were tested")
 	}
 }
 
