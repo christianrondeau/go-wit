@@ -230,10 +230,6 @@ func TestCreateEntityValueExp(t *testing.T) {
 	if !found || barcelona.Value != "Barcelona" {
 		t.Error("Did not add Barcelona to entity's value properly")
 	}
-	_, found = findStringInArray(barcelona.Expressions, "Paella")
-	if !found {
-		t.Error("Did not add Sagrada Familia to entity's value expression properly")
-	}
 }
 
 func TestDeleteEntityValueExp(t *testing.T) {
