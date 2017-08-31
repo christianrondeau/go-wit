@@ -110,7 +110,7 @@ func (client *Client) Message(request *MessageRequest) (*Message, error) {
 // AudioMessage requests processing of an audio message (https://wit.ai/docs/api#toc_8)
 //
 // 		request := &MessageRequest{}
-// 		request.File = "./audio_sample/helloWorld.wav"
+// 		request.File = "./_audio_sample/helloWorld.wav"
 //		request.FileContents = data
 //		request.ContentType = "audio/wav;rate=8000"
 // 		message, err := client.AudioMessage(request)

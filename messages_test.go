@@ -102,7 +102,7 @@ func TestWitMessageRequest(t *testing.T) {
 func TestWitPostAudioMessage(t *testing.T) {
 	client := NewClient(os.Getenv("WIT_ACCESS_TOKEN"))
 	request := &MessageRequest{}
-	request.File = "./audio_sample/helloWorld.wav"
+	request.File = "./_audio_sample/helloWorld.wav"
 	request.ContentType = "audio/wav"
 	message, err := client.AudioMessage(request)
 	if err != nil || message == nil {
@@ -116,7 +116,7 @@ func TestWitPostAudioMessage(t *testing.T) {
 
 func TestWitPostAudioContentsMessage(t *testing.T) {
 	client := NewClient(os.Getenv("WIT_ACCESS_TOKEN"))
-	file, err := os.Open("./audio_sample/helloWorld.wav")
+	file, err := os.Open("./_audio_sample/helloWorld.wav")
 	if err != nil {
 		t.Error(err)
 		return

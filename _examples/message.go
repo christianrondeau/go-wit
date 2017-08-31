@@ -24,7 +24,7 @@ func main() {
 
 	// Process an audio/wav message
 	request = &wit.MessageRequest{}
-	request.File = "../audio_sample/helloWorld.wav"
+	request.File = "../_audio_sample/helloWorld.wav"
 	request.ContentType = "audio/wav;rate=8000"
 	result, err = client.AudioMessage(request)
 	if err != nil {
