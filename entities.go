@@ -11,11 +11,13 @@ import (
 
 // Entity represents an Entity for the Wit API (https://wit.ai/docs/api#toc_15)
 type Entity struct {
-	Builtin bool          `json:"builtin,omitempty"`
-	Doc     string        `json:"doc"`
-	ID      string        `json:"id"`
-	Name    string        `json:"name,omitempty"`
-	Values  []EntityValue `json:"values"`
+	Builtin bool     `json:"builtin,omitempty"`
+	Doc     string   `json:"doc"`
+	Exotic  bool     `json:"exotic,omitempty"`
+	ID      string   `json:"id"`
+	Lang    string   `json:"lang,omitempty"`
+	Name    string   `json:"name,omitempty"`
+	Lookups []string `json:"lookups,omitempty"`
 }
 
 // EntityValue represents a Value within an Entity

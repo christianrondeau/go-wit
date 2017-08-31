@@ -13,15 +13,6 @@ import (
 
 var entityName string
 
-func findEntityValue(e *Entity, v string) (value EntityValue, b bool) {
-	for _, val := range e.Values {
-		if val.Value == v {
-			return val, true
-		}
-	}
-	return value, false
-}
-
 func findStringInArray(a []string, v string) (s string, b bool) {
 	for _, val := range a {
 		if val == v {
@@ -164,9 +155,6 @@ func TestCreateEntity(t *testing.T) {
 	if entity.Doc != "A city that I like" {
 		t.Error("Entity was not created properly, doc not set")
 	}
-	if entity.Values[0].Value != "Paris" {
-		t.Error("Entity was not created properly, values not set")
-	}
 	_, err = client.CreateEntity(entity)
 	if err.Error() != http.StatusText(409) {
 		t.Error("Expected a 409 since the entity already exists")
@@ -209,13 +197,8 @@ func TestCreateEntityValue(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	barcelona, found := findEntityValue(entity, "Barcelona")
-	if !found || barcelona.Value != "Barcelona" {
-		t.Error("Did not add Barcelona to entity's value properly")
-	}
-	_, found = findStringInArray(barcelona.Expressions, "Sagrada Familia")
-	if !found {
-		t.Error("Did not add Sagrada Familia to entity's value expression properly")
+	if entity.Name != entityName {
+		t.Errorf("Expected %v, received %v", entityName, entity.Name)
 	}
 }
 
@@ -226,9 +209,8 @@ func TestCreateEntityValueExp(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	barcelona, found := findEntityValue(entity, "Barcelona")
-	if !found || barcelona.Value != "Barcelona" {
-		t.Error("Did not add Barcelona to entity's value properly")
+	if entity.Name != entityName {
+		t.Errorf("Expected %v, received %v", entityName, entity.Name)
 	}
 }
 

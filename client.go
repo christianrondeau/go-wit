@@ -19,7 +19,7 @@ const (
 	// UserAgent is the HTTP Uesr Agent sent on HTTP requests
 	UserAgent = "WIT (Go net/http)"
 	// APIVersion is the version of the Wit API supported
-	APIVersion = "v=20151127"
+	APIVersion = "v=20170307"
 )
 
 // Client represents a client for the Wit API (https://wit.ai/docs/api)
