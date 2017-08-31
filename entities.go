@@ -21,6 +21,7 @@ type Entity struct {
 // EntityValue represents a Value within an Entity
 type EntityValue struct {
 	Value       string   `json:"value"`
+	Metadata    string   `json:"metadata,omitempty"`
 	Expressions []string `json:"expressions"`
 }
 

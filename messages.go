@@ -27,18 +27,19 @@ type Outcome struct {
 
 // MessageEntity represents the entity portion of a Wit message
 type MessageEntity struct {
-	Metadata *string              `json:"metadata,omitempty"`
-	Value    *interface{}         `json:"value,omitempty"`
-	Grain    *string              `json:"grain,omitempty"`
-	Type     *string              `json:"type,omitempty"`
-	Unit     *string              `json:"unit,omitempty"`
-	Body     *string              `json:"body,omitempty"`
-	Entity   *string              `json:"entity,omitempty"`
-	Start    *int64               `json:"start,omitempty"`
-	End      *int64               `json:"end,omitempty"`
-	Values   *[]interface{}       `json:"values,omitempty"`
-	From     *DatetimeIntervalEnd `json:"from,omitempty"`
-	To       *DatetimeIntervalEnd `json:"to,omitempty"`
+	Metadata     *string              `json:"metadata,omitempty"`
+	Value        interface{}          `json:"value,omitempty"`
+	Grain        *string              `json:"grain,omitempty"`
+	Type         *string              `json:"type,omitempty"`
+	Unit         *string              `json:"unit,omitempty"`
+	Body         *string              `json:"body,omitempty"`
+	Entity       *string              `json:"entity,omitempty"`
+	Start        *int64               `json:"start,omitempty"`
+	End          *int64               `json:"end,omitempty"`
+	Values       *[]interface{}       `json:"values,omitempty"`
+	From         *DatetimeIntervalEnd `json:"from,omitempty"`
+	To           *DatetimeIntervalEnd `json:"to,omitempty"`
+	Supplemental interface{}          `json:"supplemental,omitempty"`
 }
 
 // DatetimeValue represents the datetime value portion of a Wit message

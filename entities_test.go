@@ -157,6 +157,10 @@ func TestCreateEntity(t *testing.T) {
 		t.Errorf("Error creating entity %s", err.Error())
 		return
 	}
+	if entity == nil {
+		t.Error("Entity is nil!")
+		return
+	}
 	if entity.Doc != "A city that I like" {
 		t.Error("Entity was not created properly, doc not set")
 	}
