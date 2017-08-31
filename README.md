@@ -1,20 +1,23 @@
 #go-wit 
 
-[![wercker status](https://app.wercker.com/status/db550f8016d3e02bd1d79d94bccf764b "wercker status")](https://app.wercker.com/project/bykey/db550f8016d3e02bd1d79d94bccf764b)
+[![Build Status](https://api.travis-ci.org/christianrondeau/go-wit.svg)](http://travis-ci.org/christianrondeau/go-wit) [![GoDoc](https://godoc.org/github.com/christianrondeau/go-wit?status.svg)](http://godoc.org/github.com/christianrondeau/go-wit)
 
 A Go library for the [Wit.ai](http://wit.ai) API for Natural Language Processing.
 
 ## Version
 
-0.3 
+    0.4
 
 ## Installation
 
-	go get github.com/jsgoecke/go-wit
+    go get github.com/christianrondeau/go-wit
 
 ## Documentation
 
-[http://godoc.org/github.com/jsgoecke/go-wit](http://godoc.org/github.com/jsgoecke/go-wit)
+* [https://godoc.org/github.com/christianrondeau/go-wit](https://godoc.org/github.com/christianrondeau/go-wit)
+adasdas
+* [test coverage](http://gocover.io/github.com/christianrondeau/go-wit)
+* [lint](http://go-lint.appspot.com/github.com/christianrondeau/go-wit)
 
 ## Usage
 
@@ -22,7 +25,7 @@ A Go library for the [Wit.ai](http://wit.ai) API for Natural Language Processing
 package main
 
 import (
-	"github.com/jsgoecke/go-wit"
+	"github.com/christianrondeau/go-wit"
 	"encoding/json"
 	"log"
 	"os"
@@ -92,23 +95,16 @@ func main() {
 
 ## Testing
 
-Must have the environment variable WIT_ACCESS_TOKEN set to your Wit API token.
-	
-	cd go-wit
-	go test
+Set the `WIT_ACCESS_TOKEN` environment variable to your [Wit](https://wit.ai) Server API token
 
-### Test Coverage
-
-[http://gocover.io/github.com/jsgoecke/go-wit](http://gocover.io/github.com/jsgoecke/go-wit)
-
-### Lint
-
-[http://go-lint.appspot.com/github.com/jsgoecke/go-wit](http://go-lint.appspot.com/github.com/jsgoecke/go-wit)
+    cd go-wit
+    go test
 
 ## License
 
-MIT, see LICENSE.txt
+[MIT](LICENSE.txt)
 
 ## Author
 
-Jason Goecke [@jsgoecke](http://twitter.com/jsgoecke).
+Original Author: Jason Goecke [@jsgoecke](http://twitter.com/jsgoecke)
+This repository's maintainer: Christian Rondeau [@christianrondeau](http://twitter.com/christianrondeau)
