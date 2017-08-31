@@ -5,8 +5,6 @@ package wit
 
 import (
 	"encoding/json"
-	"net/url"
-	"strconv"
 )
 
 // Message represents a Wit message (https://wit.ai/docs/api#toc_3)
@@ -71,40 +69,6 @@ type MessageRequest struct {
 type Context struct {
 	ReferenceTime string `json:"reference_time"`
 	Timezone      string `json:"timezone"`
-}
-
-// Messages lists an already existing message (https://wit.ai/docs/api#toc_11)
-//
-//		result, err := client.Messages("ba0fcf60-44d3-4499-877e-c8d65c239730")
-func (client *Client) Messages(id string) (*Message, error) {
-	result, err := get(client.APIBase + "/messages/" + id)
-	if err != nil {
-		return nil, err
-	}
-	message, err := parseMessage(result)
-	return message, nil
-}
-
-// Message requests processing of a text message (https://wit.ai/docs/api#toc_3)
-//
-//		result, err := client.Message(request)
-func (client *Client) Message(request *MessageRequest) (*Message, error) {
-	query := url.QueryEscape(request.Query)
-	if request.Context != "" {
-		query += "&context=" + request.Context
-	}
-	if request.MsgID != "" {
-		query += "&msg_id" + request.MsgID
-	}
-	if request.N != 0 {
-		query += "&n=" + strconv.Itoa(request.N)
-	}
-	result, err := get(client.APIBase + "/message?q=" + query)
-	if err != nil {
-		return nil, err
-	}
-	message, _ := parseMessage(result)
-	return message, nil
 }
 
 // AudioMessage requests processing of an audio message (https://wit.ai/docs/api#toc_8)

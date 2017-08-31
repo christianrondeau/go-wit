@@ -80,7 +80,7 @@ func post(resource string, data []byte) ([]byte, error) {
 
 // Provides a common facility for doing a POST with a file on a Wit resource.
 //
-//		result, err := postFile("https://api.wit.ai/messages", message)
+//		result, err := postFile("https://api.wit.ai/speech", message)
 func postFile(resource string, request *MessageRequest) ([]byte, error) {
 	if request.File != "" {
 		file, err := os.Open(request.File)

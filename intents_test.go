@@ -66,14 +66,19 @@ func TestWitIntentShow(t *testing.T) {
 		}
 		if intent.ID != intentDetail.ID {
 			t.Error("Intent IDs don't match")
+			log.Printf("Got intent detail: %+v", *intentDetail)
+			return
 		}
 		if len(intentDetail.Expressions) < 1 {
 			t.Error("Did not get example expressions for intent:")
+			log.Printf("Got intent detail: %+v", *intentDetail)
+			return
 		}
 		if len(intentDetail.Entities) < 1 {
 			t.Error("No entities for intent:", intentDetail.ID)
+			log.Printf("Got intent detail: %+v", *intentDetail)
+			return
 		}
-		log.Printf("Got intent detail: %+v", *intentDetail)
 		testedAnIntent = true
 	}
 
